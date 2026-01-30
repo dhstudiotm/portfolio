@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBot Pro | Telegram Bot Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Видеофон -->
+    <div class="video-bg">
+        <video autoplay muted loop playsinline id="bgVideo">
+            <source src="videos/fon.mp4" type="video/mp4">
+            <!-- Резервный контент -->
+            <div class="fallback-bg" style="background: linear-gradient(135deg, #0a0a0f 0%, #0f1928 100%);"></div>
+        </video>
+        <div class="video-overlay"></div>
+        
+        <!-- Простые элементы управления видео -->
+        <div class="video-controls">
+            <button id="playPauseBtn" class="video-control-btn" title="Пауза/Продолжить">
+                <i class="fas fa-pause" id="playPauseIcon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Главный контейнер -->
+    <div class="container">
+        <!-- Навигация -->
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon"><</span>DH Studio<span class="logo-icon">/></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home"><span class="nav-num">00.</span> Главная</a>
+                <a href="#portfolio"><span class="nav-num">01.</span> Работы</a>
+                <a href="#services"><span class="nav-num">02.</span> Услуги</a>
+                <a href="#contact"><span class="nav-num">03.</span> Контакты</a>
+            </div>
+            <div class="messenger-icons">
+                <a href="https://t.me/dh_studiotm" target="_blank" title="Telegram" class="telegram-icon">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://wa.me/+79222302264" target="_blank" title="WhatsApp" class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:dhstudiotm.com" target="_blank" title="Email" class="email-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/hojayevdidar383-ctrl" target="_blank" title="GitHub" class="github-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Главная секция -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="greeting">
+                        <span class="wave">👨‍💻</span>
+                        <span class="tagline">Разработка Telegram ботов</span>
+                    </div>
+                    
+                    <h1 class="name-title">
+                        <span class="name-gradient">Автоматизация</span>
+                        <br>вашего бизнеса
+                    </h1>
+                    
+                    <p class="subtitle">
+                        Я Дмитрий - специализируюсь на создании решений, которые экономят время и деньги бизнеса. Моя экспертиза — это полный цикл: от разработки сложных чат-ботов для <span class="highlight">мессенджеров</span> до настройки и поддержки инфраструктуры (VPS), на которой они работают. Я гарантирую, что ваш проект будет не только функциональным, но и стабильным, безопасным и масштабируемым.                    </p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">проектов</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">работа</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">гарантия</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn primary-btn">
+                            <i class="fas fa-rocket"></i> Обсудить проект
+                        </a>
+                        <a href="#portfolio" class="btn secondary-btn">
+                            <i class="fas fa-eye"></i> Посмотреть работы
+                        </a>
+                    </div>
+                    
+                    <div class="quick-contacts">
+                        <p><i class="fas fa-clock"></i> Отвечаю в течение 15 минут:</p>
+                        <div class="contact-buttons">
+                            <a href="https://t.me/dh_studiotm" class="contact-btn telegram">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </a>
+                            <a href="https://wa.me/+79222302264" class="contact-btn whatsapp">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="mailto:dhstudiotm.com" class="contact-btn email">
+                                <i class="fas fa-envelope"></i> Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-card">
+                        <div class="card-header">
+                            <div class="card-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="card-title"># Активный проект</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="project-info">
+                                <h3>🤖 Бот для доставки</h3>
+                                <p>Приём заказов + оплата + трекинг доставки</p>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                                <span class="progress-text">85% завершено</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-badges">
+                        <div class="badge">
+                            <i class="fab fa-python"></i> Python
+                        </div>
+                        <div class="badge">
+                            <i class="fab fa-node-js"></i> Node.js
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-database"></i> PostgreSQL
+                        </div>
+                        <div class="badge">
+                            <i class="fab fa-telegram"></i> Telegram API
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Листайте вниз</span>
+            </div>
+        </section>
+
+        <!-- Секция: Почему нужен бот? -->
+        <section class="why-bot">
+            <h2 class="section-title">
+                <span class="title-num">01.</span> Почему вашему бизнесу нужен бот?
+            </h2>
+            
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Работает 24/7</h3>
+                    <p>Принимает заявки даже ночью и в выходные. Ни один клиент не уйдёт.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Экономит деньги</h3>
+                    <p>Снижает нагрузку на менеджеров. 1 бот заменяет 2-3 сотрудника.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Увеличивает продажи</h3>
+                    <p>Конверсия в заявки повышается на 40-60%. Клиенты любят удобство.</p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Мгновенная реакция</h3>
+                    <p>Клиент получает ответ за 1 секунду. Нет ожидания в очереди.</p>
+                </div>
+            </div>
+            
+            <div class="why-stats">
+                <div class="stat-box">
+                    <div class="stat-number">67%</div>
+                    <div class="stat-text">клиентов предпочитают мессенджеры</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-text">типовых запросов обрабатывает бот</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">40%</div>
+                    <div class="stat-text">рост конверсии после внедрения</div>
+                </div>
+            </div>
+        </section>
+<!-- Секция: Наши некоторые проекты с сверхспопобностями) -->
+<section id="portfolio" class="portfolio">
+    <h2 class="section-title">
+        <span class="title-num">02.</span> Наши некоторые проекты с сверхспопобностями)
+    </h2>
+    
+    <div class="portfolio-vertical">
+        <!-- Проект 1 -->
+        <div class="project-vertical">
+            <div class="project-image-vertical">
+                <img src="images/projects/image_to_pdf.jpg" alt="Image to PDF Bot">
+                <div class="project-tag-vertical">Telegram Bot</div>
+            </div>
+            <div class="project-content-vertical">
+                <h3>📸 Image to PDF Bot</h3>
+                <p class="project-description">
+                    Конвертирует фотографии в PDF и Word файлы. Поддерживает несколько форматов,
+                    автоматическое выравнивание и сжатие. Простой интерфейс для быстрой конвертации.
+                </p>
+                <div class="project-tech-vertical">
+                    <span>Python</span>
+                    <span>Aiogram</span>
+                    <span>Pillow</span>
+                    <span>pdfkit</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span>5,000+ пользователей</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>20,000+ конвертаций</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Проект 2 -->
+        <div class="project-vertical">
+            <div class="project-image-vertical">
+                <img src="images/projects/tiktok.jpg" alt="TikTok Downloader">
+                <div class="project-tag-vertical">Telegram Bot</div>
+            </div>
+            <div class="project-content-vertical">
+                <h3>🎵 Save TikTok Bot</h3>
+                <p class="project-description">
+                    Скачивает видео из TikTok без водяных знаков. Поддерживает HD качество,
+                    выбор формата (MP4, MP3) и пакетное скачивание. Быстрая обработка ссылок.
+                </p>
+                <div class="project-tech-vertical">
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>yt-dlp</span>
+                    <span>FFmpeg</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span>15,000+ пользователей</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-download"></i>
+                        <span>50,000+ загрузок</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Проект 3 -->
+        <div class="project-vertical">
+            <div class="project-image-vertical">
+                <img src="images/projects/youtube.jpg" alt="YouTube Downloader">
+                <div class="project-tag-vertical">Telegram Bot</div>
+            </div>
+            <div class="project-content-vertical">
+                <h3>📺 YouTube Downloader</h3>
+                <p class="project-description">
+                    Скачивает видео и аудио с YouTube в высоком качестве. Поддерживает 4K, 1080p,
+                    выбор формата и битрейта. Интегрирован с YouTube API для быстрого поиска.
+                </p>
+                <div class="project-tech-vertical">
+                    <span>Python</span>
+                    <span>youtube-dl</span>
+                    <span>FFmpeg</span>
+                    <span>Celery</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span>25,000+ пользователей</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-video"></i>
+                        <span>100,000+ загрузок</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Проект 4 -->
+        <div class="project-vertical">
+            <div class="project-image-vertical">
+                <img src="images/projects/analitic.png" alt="NeverUs Analytics">
+                <div class="project-tag-vertical">Telegram Bot</div>
+            </div>
+            <div class="project-content-vertical">
+                <h3>📊 NeverUs Analytics</h3>
+                <p class="project-description">
+                    Бот для анализа статистики Telegram-каналов. Показывает рост подписчиков,
+                    вовлеченность, демографию аудитории. Автоматические отчёты и прогнозы.
+                </p>
+                <div class="project-tech-vertical">
+                    <span>Python</span>
+                    <span>Telethon</span>
+                    <span>PostgreSQL</span>
+                    <span>Chart.js</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <i class="fas fa-chart-line"></i>
+                        <span>500+ каналов</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-database"></i>
+                        <span>1M+ записей аналитики</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Проект 5 -->
+        <div class="project-vertical">
+            <div class="project-image-vertical">
+                <img src="images/projects/study.png" alt="Помощь в учебе">
+                <div class="project-tag-vertical">Telegram Bot</div>
+            </div>
+            <div class="project-content-vertical">
+                <h3>📚 Помощь в учебе</h3>
+                <p class="project-description">
+                    Бот для заказа учебных работ: рефераты, доклады, курсовые, презентации.
+                    Система заказа, отслеживания статуса, чат с исполнителем и безопасная оплата.
+                </p>
+                <div class="project-tech-vertical">
+                    <span>Python</span>
+                    <span>Django</span>
+                    <span>PostgreSQL</span>
+                    <span>Stripe API</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>2,000+ заказов</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>4.8/5 оценка</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Проект 6 (старый стиль, но в новой структуре) -->
+        <div class="project-vertical">
+            <div class="project-image-vertical">
+                <div class="project-tag-vertical">Telegram + CRM</div>
+                <img src="images/projects/kurs.jpg" alt="помощник по заявкам">
+            </div>
+            <div class="project-content-vertical">
+                <h3>Бот для образовательных курсов</h3>
+                <p class="project-description">
+                    Запись на курсы, оплата, доступ к материалам, напоминания. Интеграция с AmoCRM,
+                    автоматическое создание сделок и управление клиентами.
+                </p>
+                <div class="project-tech-vertical">
+                    <span>Python</span>
+                    <span>AmoCRM</span>
+                    <span>Django</span>
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="project-stats">
+                    <div class="stat">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>1,200+ студентов</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-chart-line"></i>
+                        <span>85% конверсия</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Секция услуг -->
+        <section id="services" class="services">
+            <h2 class="section-title">
+                <span class="title-num">03.</span> Услуги
+            </h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-telegram-plane"></i>
+                    </div>
+                    <h3>Telegram боты</h3>
+                    <p>Боты для приёма заявок, онлайн-записи, обработки заказов.</p>
+                    <div class="service-price">от 15 000₽</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp боты</h3>
+                    <p>Автоматизация общения с клиентами в WhatsApp Business.</p>
+                    <div class="service-price">от 15 000₽</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>CRM интеграция</h3>
+                    <p>Подключение ботов к AmoCRM, Bitrix24, RetailCRM.</p>
+                    <div class="service-price">от 25 000₽</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция: FAQ -->
+        <section class="faq">
+            <h2 class="section-title">
+                <span class="title-num">04.</span> Частые вопросы
+            </h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Сколько стоит разработка бота?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Стоимость зависит от функционала. Простой бот для приёма заявок — от 5 000₽. Бот с интеграцией в CRM — от 15 000₽. Точную стоимость определяем после обсуждения задач.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Сколько времени занимает разработка?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Простой бот — 3 дней. Сложный бот с интеграциями — 7-14 дней. Первый работающий прототип показываю уже через 2 дня.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Нужен ли сервер для работы бота?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, боту нужен сервер для работы 24/7. Я помогу выбрать и настроить недорогой сервер (от 300₽/месяц). Вы оплачиваете сервер самостоятельно.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Даете ли вы гарантию?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, 14 дней гарантии на исправление ошибок. Также даю инструкцию по управлению ботом и помогаю с первичной настройкой.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли потом добавить новые функции?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Конечно. Всегда можно добавить новые функции: онлайн-оплату, интеграцию с другими сервисами, сложную логику. Стоимость доработок обсуждаем отдельно.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция: Демо-бот -->
+        <section class="demo-bot">
+            <h2 class="section-title">
+                <span class="title-num">05.</span> Попробуйте демо-бота
+            </h2>
+            
+            <div class="demo-container">
+                <div class="demo-info">
+                    <h3>Тестовый бот для знакомства</h3>
+                    <p>Попробуйте основные функции бота прямо сейчас:</p>
+                    <ul class="demo-features">
+                        <li><i class="fas fa-check"></i> Приём тестовых заявок</li>
+                        <li><i class="fas fa-check"></i> Кнопочное меню</li>
+                        <li><i class="fas fa-check"></i> Интерактивные ответы</li>
+                        <li><i class="fas fa-check"></i> Быстрая связь с разработчиком</li>
+                    </ul>
+                    
+                    <div class="demo-buttons">
+                        <a href="https://t.me/dh_studiotm_bot" class="btn primary-btn" target="_blank">
+                            <i class="fab fa-telegram"></i> Открыть демо-бота
+                        </a>
+                        <div class="qr-code">
+                            <div class="qr-placeholder">
+                                <i class="fas fa-qrcode"></i>
+                                <span>Наведите камеру</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-preview">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="screen-content">
+                                <div class="message received">
+                                    👋 Привет! Я тестовый бот.
+                                </div>
+                                <div class="message received">
+                                    Попробуй функции:
+                                </div>
+                                <div class="message-buttons">
+                                    <button class="msg-btn">📝 Оставить заявку</button>
+                                    <button class="msg-btn">❓ Задать вопрос</button>
+                                    <button class="msg-btn">📞 Связаться</button>
+                                </div>
+                                <div class="message sent">
+                                    Хочу увидеть демо!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция контактов -->
+        <section id="contact" class="contact">
+            <h2 class="section-title">
+                <span class="title-num">06.</span> Контакты
+            </h2>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Быстрая связь</h3>
+                    <p>Отвечаю в течение 60 минут в рабочее время</p>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fab fa-telegram"></i>
+                            <div>
+                                <h4>Telegram</h4>
+                                <a href="https://t.me/dh_studiotm">@dh_studiotm</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/+79222302264">+79222302264</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:dhstudiotm.com">dhstudiotm.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <h3>Отправить запрос</h3>
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Опишите ваш проект..." rows="5" required></textarea>
+                    <button type="submit" class="btn primary-btn">
+                        <i class="fas fa-paper-plane"></i> Отправить
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon"><</span>DH Studio<span class="logo-icon">/></span>
+                </div>
+                <p>Разработка и автоматизация бизнес-процессов</p>
+                
+                <div class="footer-social">
+                    <a href="https://t.me/dh_studiotm"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/+79222302264"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://github.com/hojayevdidar383-ctrl"><i class="fab fa-github"></i></a>
+                    <a href="mailto:dhstudiotm.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>© 2026 DH Studio Pro. Все права защищены.</p>
+                    <p>Создано с <i class="fas fa-heart"></i> и кодом</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
