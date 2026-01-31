@@ -43,7 +43,7 @@ body {
     height: auto;
     transform: translate(-50%, -50%);
     object-fit: cover;
-    filter: brightness(0.4);
+    filter: brightness(0.7);
 }
 
 .video-overlay {
@@ -52,8 +52,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(10, 10, 15, 0.7) 0%, rgba(15, 25, 40, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(10, 10, 15, 0.2) 0%, rgba(15, 25, 40, 0.25) 100%);
     z-index: 1;
+    --overlay-opacity: 0.3; /* Прозрачность оверлея: 0.1-0.5 */
+    --overlay-color: 10, 10, 15; /* RGB цвет (темный) */
+    --gradient-intensity: 0.2; /* Интенсивность градиента: 0-0.3 */
 }
 
 .video-controls {
