@@ -2,10 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0a0a0f">
     <title>DevBot Pro | Telegram Bot Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -16,7 +14,6 @@
     <div class="video-bg">
         <video autoplay muted loop playsinline id="bgVideo">
             <source src="videos/fon.mp4" type="video/mp4">
-            <!-- Резервный контент -->
             <div class="fallback-bg" style="background: linear-gradient(135deg, #0a0a0f 0%, #0f1928 100%);"></div>
         </video>
         <div class="video-overlay"></div>
@@ -33,86 +30,31 @@
     <div class="container">
         <!-- Навигация -->
         <nav class="navbar">
-    <div class="logo">
-        <span class="logo-icon"><</span>DH Studio<span class="logo-icon">/></span>
-    </div>
-    
-    <div class="messenger-icons">
-        <a href="https://t.me/dh_studiotm" target="_blank" title="Telegram" class="telegram-icon">
-            <i class="fab fa-telegram"></i>
-        </a>
-        <a href="https://wa.me/+79222302264" target="_blank" title="WhatsApp" class="whatsapp-icon">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="mailto:dhstudiotm.com" target="_blank" title="Email" class="email-icon">
-            <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://github.com/hojayevdidar383-ctrl" target="_blank" title="GitHub" class="github-icon">
-            <i class="fab fa-github"></i>
-        </a>
-    </div>
-    
-    <div class="nav-links">
-        <a href="#home"><span class="nav-num">00.</span> Главная</a>
-        <a href="#portfolio"><span class="nav-num">01.</span> Работы</a>
-        <a href="#services"><span class="nav-num">02.</span> Услуги</a>
-        <a href="#contact"><span class="nav-num">03.</span> Контакты</a>
-    </div>
-    
-    <!-- Добавьте бургер-меню для мобильных (опционально) -->
-    <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i>
-    </button>
-</nav>
-/* Бургер-меню для мобильных */
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 5px;
-    z-index: 1002;
-}
+            <div class="logo">
+                <span class="logo-icon"><</span>DH Studio<span class="logo-icon">/></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home"><span class="nav-num">00.</span> Главная</a>
+                <a href="#portfolio"><span class="nav-num">01.</span> Работы</a>
+                <a href="#services"><span class="nav-num">02.</span> Услуги</a>
+                <a href="#contact"><span class="nav-num">03.</span> Контакты</a>
+            </div>
+            <div class="messenger-icons">
+                <a href="https://t.me/dh_studiotm" target="_blank" title="Telegram" class="telegram-icon">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://wa.me/+79222302264" target="_blank" title="WhatsApp" class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:dhstudiotm.com" target="_blank" title="Email" class="email-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/hojayevdidar383-ctrl" target="_blank" title="GitHub" class="github-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </nav>
 
-@media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block;
-        margin-left: 10px;
-    }
-    
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 10, 15, 0.98);
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        flex-direction: column;
-        gap: 15px;
-        z-index: 1001;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .nav-links a {
-        padding: 15px;
-        text-align: center;
-        font-size: 16px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.05);
-    }
-    
-    .nav-links a:hover {
-        background: rgba(0, 150, 255, 0.15);
-    }
-}
         <!-- Главная секция -->
         <section id="home" class="hero">
             <div class="hero-content">
@@ -128,11 +70,12 @@
                     </h1>
                     
                     <p class="subtitle">
-                        Я Дмитрий - специализируюсь на создании решений, которые экономят время и деньги бизнеса. Моя экспертиза — это полный цикл: от разработки сложных чат-ботов для <span class="highlight">мессенджеров</span> до настройки и поддержки инфраструктуры (VPS), на которой они работают. Я гарантирую, что ваш проект будет не только функциональным, но и стабильным, безопасным и масштабируемым.                    </p>
+                        Я Дмитрий - специализируюсь на создании решений, которые экономят время и деньги бизнеса. Моя экспертиза — это полный цикл: от разработки сложных чат-ботов для <span class="highlight">мессенджеров</span> до настройки и поддержки инфраструктуры (VPS), на которой они работают. Я гарантирую, что ваш проект будет не только функциональным, но и стабильным, безопасным и масштабируемым.
+                    </p>
                     
                     <div class="stats">
                         <div class="stat-item">
-                            <div class="stat-number">30+</div>
+                            <div class="stat-number">50+</div>
                             <div class="stat-label">проектов</div>
                         </div>
                         <div class="stat-item">
@@ -272,200 +215,201 @@
                 </div>
             </div>
         </section>
-<!-- Секция: Наши некоторые проекты с сверхспопобностями) -->
-<section id="portfolio" class="portfolio">
-    <h2 class="section-title">
-        <span class="title-num">02.</span> Наши некоторые проекты с сверхспопобностями)
-    </h2>
-    
-    <div class="portfolio-vertical">
-        <!-- Проект 1 -->
-        <div class="project-vertical">
-            <div class="project-image-vertical">
-                <img src="images/projects/image_to_pdf.jpg" alt="Image to PDF Bot">
-                <div class="project-tag-vertical">Telegram Bot</div>
-            </div>
-            <div class="project-content-vertical">
-                <h3>📸 Image to PDF Bot</h3>
-                <p class="project-description">
-                    Конвертирует фотографии в PDF и Word файлы. Поддерживает несколько форматов,
-                    автоматическое выравнивание и сжатие. Простой интерфейс для быстрой конвертации.
-                </p>
-                <div class="project-tech-vertical">
-                    <span>Python</span>
-                    <span>Aiogram</span>
-                    <span>Pillow</span>
-                    <span>pdfkit</span>
-                </div>
-                <div class="project-stats">
-                    <div class="stat">
-                        <i class="fas fa-users"></i>
-                        <span>5,000+ пользователей</span>
+
+        <!-- Секция: Наши проекты -->
+        <section id="portfolio" class="portfolio">
+            <h2 class="section-title">
+                <span class="title-num">02.</span> Наши проекты
+            </h2>
+            
+            <div class="portfolio-vertical">
+                <!-- Проект 1 -->
+                <div class="project-vertical">
+                    <div class="project-image-vertical">
+                        <img src="images/projects/image_to_pdf.jpg" alt="Image to PDF Bot">
+                        <div class="project-tag-vertical">Telegram Bot</div>
                     </div>
-                    <div class="stat">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>20,000+ конвертаций</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Проект 2 -->
-        <div class="project-vertical">
-            <div class="project-image-vertical">
-                <img src="images/projects/tiktok.jpg" alt="TikTok Downloader">
-                <div class="project-tag-vertical">Telegram Bot</div>
-            </div>
-            <div class="project-content-vertical">
-                <h3>🎵 Save TikTok Bot</h3>
-                <p class="project-description">
-                    Скачивает видео из TikTok без водяных знаков. Поддерживает HD качество,
-                    выбор формата (MP4, MP3) и пакетное скачивание. Быстрая обработка ссылок.
-                </p>
-                <div class="project-tech-vertical">
-                    <span>Node.js</span>
-                    <span>Express</span>
-                    <span>yt-dlp</span>
-                    <span>FFmpeg</span>
-                </div>
-                <div class="project-stats">
-                    <div class="stat">
-                        <i class="fas fa-users"></i>
-                        <span>15,000+ пользователей</span>
-                    </div>
-                    <div class="stat">
-                        <i class="fas fa-download"></i>
-                        <span>50,000+ загрузок</span>
+                    <div class="project-content-vertical">
+                        <h3>📸 Image to PDF Bot</h3>
+                        <p class="project-description">
+                            Конвертирует фотографии в PDF и Word файлы. Поддерживает несколько форматов,
+                            автоматическое выравнивание и сжатие. Простой интерфейс для быстрой конвертации.
+                        </p>
+                        <div class="project-tech-vertical">
+                            <span>Python</span>
+                            <span>Aiogram</span>
+                            <span>Pillow</span>
+                            <span>pdfkit</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>5,000+ пользователей</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>20,000+ конвертаций</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Проект 3 -->
-        <div class="project-vertical">
-            <div class="project-image-vertical">
-                <img src="images/projects/youtube.jpg" alt="YouTube Downloader">
-                <div class="project-tag-vertical">Telegram Bot</div>
-            </div>
-            <div class="project-content-vertical">
-                <h3>📺 YouTube Downloader</h3>
-                <p class="project-description">
-                    Скачивает видео и аудио с YouTube в высоком качестве. Поддерживает 4K, 1080p,
-                    выбор формата и битрейта. Интегрирован с YouTube API для быстрого поиска.
-                </p>
-                <div class="project-tech-vertical">
-                    <span>Python</span>
-                    <span>youtube-dl</span>
-                    <span>FFmpeg</span>
-                    <span>Celery</span>
-                </div>
-                <div class="project-stats">
-                    <div class="stat">
-                        <i class="fas fa-users"></i>
-                        <span>25,000+ пользователей</span>
+                
+                <!-- Проект 2 -->
+                <div class="project-vertical">
+                    <div class="project-image-vertical">
+                        <img src="images/projects/tiktok.jpg" alt="TikTok Downloader">
+                        <div class="project-tag-vertical">Telegram Bot</div>
                     </div>
-                    <div class="stat">
-                        <i class="fas fa-video"></i>
-                        <span>100,000+ загрузок</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Проект 4 -->
-        <div class="project-vertical">
-            <div class="project-image-vertical">
-                <img src="images/projects/analitic.png" alt="NeverUs Analytics">
-                <div class="project-tag-vertical">Telegram Bot</div>
-            </div>
-            <div class="project-content-vertical">
-                <h3>📊 NeverUs Analytics</h3>
-                <p class="project-description">
-                    Бот для анализа статистики Telegram-каналов. Показывает рост подписчиков,
-                    вовлеченность, демографию аудитории. Автоматические отчёты и прогнозы.
-                </p>
-                <div class="project-tech-vertical">
-                    <span>Python</span>
-                    <span>Telethon</span>
-                    <span>PostgreSQL</span>
-                    <span>Chart.js</span>
-                </div>
-                <div class="project-stats">
-                    <div class="stat">
-                        <i class="fas fa-chart-line"></i>
-                        <span>500+ каналов</span>
-                    </div>
-                    <div class="stat">
-                        <i class="fas fa-database"></i>
-                        <span>1M+ записей аналитики</span>
+                    <div class="project-content-vertical">
+                        <h3>🎵 Save TikTok Bot</h3>
+                        <p class="project-description">
+                            Скачивает видео из TikTok без водяных знаков. Поддерживает HD качество,
+                            выбор формата (MP4, MP3) и пакетное скачивание. Быстрая обработка ссылок.
+                        </p>
+                        <div class="project-tech-vertical">
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>yt-dlp</span>
+                            <span>FFmpeg</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>15,000+ пользователей</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-download"></i>
+                                <span>50,000+ загрузок</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Проект 5 -->
-        <div class="project-vertical">
-            <div class="project-image-vertical">
-                <img src="images/projects/study.png" alt="Помощь в учебе">
-                <div class="project-tag-vertical">Telegram Bot</div>
-            </div>
-            <div class="project-content-vertical">
-                <h3>📚 Помощь в учебе</h3>
-                <p class="project-description">
-                    Бот для заказа учебных работ: рефераты, доклады, курсовые, презентации.
-                    Система заказа, отслеживания статуса, чат с исполнителем и безопасная оплата.
-                </p>
-                <div class="project-tech-vertical">
-                    <span>Python</span>
-                    <span>Django</span>
-                    <span>PostgreSQL</span>
-                    <span>Stripe API</span>
-                </div>
-                <div class="project-stats">
-                    <div class="stat">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>2,000+ заказов</span>
+                
+                <!-- Проект 3 -->
+                <div class="project-vertical">
+                    <div class="project-image-vertical">
+                        <img src="images/projects/youtube.png" alt="YouTube Downloader">
+                        <div class="project-tag-vertical">Telegram Bot</div>
                     </div>
-                    <div class="stat">
-                        <i class="fas fa-star"></i>
-                        <span>4.8/5 оценка</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Проект 6 (старый стиль, но в новой структуре) -->
-        <div class="project-vertical">
-            <div class="project-image-vertical">
-                <div class="project-tag-vertical">Telegram + CRM</div>
-                <img src="images/projects/kurs.jpg" alt="помощник по заявкам">
-            </div>
-            <div class="project-content-vertical">
-                <h3>Бот для образовательных курсов</h3>
-                <p class="project-description">
-                    Запись на курсы, оплата, доступ к материалам, напоминания. Интеграция с AmoCRM,
-                    автоматическое создание сделок и управление клиентами.
-                </p>
-                <div class="project-tech-vertical">
-                    <span>Python</span>
-                    <span>AmoCRM</span>
-                    <span>Django</span>
-                    <span>PostgreSQL</span>
-                </div>
-                <div class="project-stats">
-                    <div class="stat">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>1,200+ студентов</span>
-                    </div>
-                    <div class="stat">
-                        <i class="fas fa-chart-line"></i>
-                        <span>85% конверсия</span>
+                    <div class="project-content-vertical">
+                        <h3>📺 YouTube Downloader</h3>
+                        <p class="project-description">
+                            Скачивает видео и аудио с YouTube в высоком качестве. Поддерживает 4K, 1080p,
+                            выбор формата и битрейта. Интегрирован с YouTube API для быстрого поиска.
+                        </p>
+                        <div class="project-tech-vertical">
+                            <span>Python</span>
+                            <span>youtube-dl</span>
+                            <span>FFmpeg</span>
+                            <span>Celery</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>25,000+ пользователей</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-video"></i>
+                                <span>100,000+ загрузок</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
+                <!-- Проект 4 -->
+                <div class="project-vertical">
+                    <div class="project-image-vertical">
+                        <img src="images/projects/analitic.png" alt="NeverUs Analytics">
+                        <div class="project-tag-vertical">Telegram Bot</div>
+                    </div>
+                    <div class="project-content-vertical">
+                        <h3>📊 NeverUs Analytics</h3>
+                        <p class="project-description">
+                            Бот для анализа статистики Telegram-каналов. Показывает рост подписчиков,
+                            вовлеченность, демографию аудитории. Автоматические отчёты и прогнозы.
+                        </p>
+                        <div class="project-tech-vertical">
+                            <span>Python</span>
+                            <span>Telethon</span>
+                            <span>PostgreSQL</span>
+                            <span>Chart.js</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>500+ каналов</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-database"></i>
+                                <span>1M+ записей аналитики</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Проект 5 -->
+                <div class="project-vertical">
+                    <div class="project-image-vertical">
+                        <img src="images/projects/study.png" alt="Помощь в учебе">
+                        <div class="project-tag-vertical">Telegram Bot</div>
+                    </div>
+                    <div class="project-content-vertical">
+                        <h3>📚 Помощь в учебе</h3>
+                        <p class="project-description">
+                            Бот для заказа учебных работ: рефераты, доклады, курсовые, презентации.
+                            Система заказа, отслеживания статуса, чат с исполнителем и безопасная оплата.
+                        </p>
+                        <div class="project-tech-vertical">
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                            <span>Stripe API</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>2,000+ заказов</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>4.8/5 оценка</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Проект 6 -->
+                <div class="project-vertical">
+                    <div class="project-image-vertical">
+                        <div class="project-tag-vertical">Telegram + CRM</div>
+                        <img src="images/projects/kurs.jpg" alt="помощник по заявкам">
+                    </div>
+                    <div class="project-content-vertical">
+                        <h3>Бот для образовательных курсов</h3>
+                        <p class="project-description">
+                            Запись на курсы, оплата, доступ к материалам, напоминания. Интеграция с AmoCRM,
+                            автоматическое создание сделок и управление клиентами.
+                        </p>
+                        <div class="project-tech-vertical">
+                            <span>Python</span>
+                            <span>AmoCRM</span>
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>1,200+ студентов</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>85% конверсия</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- Секция услуг -->
         <section id="services" class="services">
