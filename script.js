@@ -132,12 +132,16 @@ window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
     
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(10, 10, 15, 0.95)';
-        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+        navbar.style.background = 'rgba(10, 10, 15, 0.9)';
+        navbar.style.backdropFilter = 'blur(20px)';
+        navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
     } else {
-        navbar.style.background = 'rgba(10, 10, 15, 0.8)';
-        navbar.style.boxShadow = 'none';
+        navbar.classList.remove('scrolled');
+        navbar.style.background = 'rgba(10, 10, 15, 0.6)';
+        navbar.style.backdropFilter = 'blur(15px)';
+        navbar.style.boxShadow = '0 5px 25px rgba(0, 0, 0, 0.2)';
     }
 });
 
@@ -155,4 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.service-card, .project-vertical, .why-card').forEach(el => {
         el.classList.add('animate');
     });
+    
+    // Инициализируем навигацию
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        // Начальное состояние
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        }
+    }
 });
