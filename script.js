@@ -5,80 +5,28 @@ const playPauseIcon = document.getElementById('playPauseIcon');
 
 let isPlaying = true;
 
-// Функция для отладки
-function debugVideo() {
-    console.log('=== DEBUG VIDEO ===');
-    console.log('Элемент видео:', bgVideo);
-    console.log('Источник:', bgVideo.src);
-    console.log('Готовность:', bgVideo.readyState);
-    console.log('Ошибка:', bgVideo.error);
-    console.log('==================');
-}
-
 // Инициализация видео
 function initVideo() {
-    if (!bgVideo) {
-        console.error('❌ Элемент video не найден!');
-        return;
-    }
+    if (!bgVideo) return;
     
-    console.log('🎬 Инициализация видеофона...');
-    debugVideo();
-    
-    // Устанавливаем обработчики событий
     bgVideo.addEventListener('loadeddata', function() {
-        console.log('✅ Видео загружено успешно');
-        console.log('Длительность:', bgVideo.duration.toFixed(1), 'секунд');
-        console.log('Разрешение:', bgVideo.videoWidth, 'x', bgVideo.videoHeight);
-        console.log('Атрибуты:', 'autoplay=' + bgVideo.autoplay, 'muted=' + bgVideo.muted, 'loop=' + bgVideo.loop);
-    });
-    
-    bgVideo.addEventListener('canplay', function() {
-        console.log('✅ Видео готово к воспроизведению');
-        // Пробуем запустить воспроизведение программно
-        const playPromise = bgVideo.play();
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                console.log('✅ Автовоспроизведение запущено');
-                isPlaying = true;
-                updatePlayIcon();
-            }).catch(error => {
-                console.log('⚠️ Автовоспроизведение заблокировано:', error);
-                // Показываем кнопку воспроизведения
-                playPauseIcon.classList.remove('fa-pause');
-                playPauseIcon.classList.add('fa-play');
-                isPlaying = false;
-            });
-        }
+        console.log('✅ Видео загружено');
     });
     
     bgVideo.addEventListener('error', function(e) {
-        console.error('❌ Ошибка загрузки видео:', e);
-        console.error('Код ошибки:', bgVideo.error ? bgVideo.error.code : 'неизвестно');
-        console.error('Сообщение:', bgVideo.error ? bgVideo.error.message : 'нет сообщения');
-        
-        // Показываем градиентный фон при ошибке
+        console.error('❌ Ошибка загрузки видео');
         document.querySelector('.video-bg').style.background = 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%)';
-        document.querySelector('.video-bg').style.animation = 'gradientShift 15s ease infinite';
-        document.querySelector('.video-bg').style.backgroundSize = '400% 400%';
     });
     
     bgVideo.addEventListener('play', function() {
-        console.log('▶️ Воспроизведение началось');
         isPlaying = true;
         updatePlayIcon();
     });
     
     bgVideo.addEventListener('pause', function() {
-        console.log('⏸️ Воспроизведение приостановлено');
         isPlaying = false;
         updatePlayIcon();
     });
-    
-    // Обновляем иконку каждые 100мс (на случай проблем с автовоспроизведением)
-    setTimeout(updatePlayIcon, 100);
-    setTimeout(updatePlayIcon, 500);
-    setTimeout(updatePlayIcon, 1000);
 }
 
 // Обновление иконки воспроизведения
@@ -98,19 +46,10 @@ function updatePlayIcon() {
 function togglePlayPause() {
     if (!bgVideo) return;
     
-    try {
-        if (isPlaying) {
-            bgVideo.pause();
-        } else {
-            const playPromise = bgVideo.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.error('Ошибка воспроизведения:', error);
-                });
-            }
-        }
-    } catch (error) {
-        console.error('Ошибка при переключении видео:', error);
+    if (isPlaying) {
+        bgVideo.pause();
+    } else {
+        bgVideo.play();
     }
 }
 
@@ -161,9 +100,6 @@ if (contactForm) {
         const email = this.querySelector('input[type="email"]').value;
         const message = this.querySelector('textarea').value;
         
-        // Здесь можно добавить отправку на сервер
-        // Например, через Telegram бота
-        
         // Показываем уведомление
         alert(`Спасибо, ${name}! Ваше сообщение отправлено. Я свяжусь с вами в течение 24 часов.`);
         
@@ -194,6 +130,8 @@ document.querySelectorAll('.service-card, .project-vertical, .why-card').forEach
 // ========== ИЗМЕНЕНИЕ НАВБАРА ПРИ СКРОЛЛЕ ==========
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(10, 10, 15, 0.95)';
         navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
@@ -205,8 +143,6 @@ window.addEventListener('scroll', () => {
 
 // ========== ИНИЦИАЛИЗАЦИЯ ==========
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Страница загружена');
-    
     // Инициализируем видеофон
     initVideo();
     
@@ -219,47 +155,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.service-card, .project-vertical, .why-card').forEach(el => {
         el.classList.add('animate');
     });
-    
-    // Проверяем видео через 2 секунды
-    setTimeout(debugVideo, 2000);
 });
-
-// ========== АНИМАЦИЯ ГРАДИЕНТА (запасной вариант) ==========
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-`;
-document.head.appendChild(style);
-// Мобильное меню
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        
-        // Меняем иконку
-        const icon = mobileMenuBtn.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-    
-    // Закрываем меню при клике на ссылку
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        });
-    });
-}
