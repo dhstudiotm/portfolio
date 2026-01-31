@@ -2,7 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="true">
     <title>DevBot Pro | Telegram Bot Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -30,31 +33,86 @@
     <div class="container">
         <!-- Навигация -->
         <nav class="navbar">
-            <div class="logo">
-                <span class="logo-icon"><</span>DH Studio<span class="logo-icon">/></span>
-            </div>
-            <div class="nav-links">
-                <a href="#home"><span class="nav-num">00.</span> Главная</a>
-                <a href="#portfolio"><span class="nav-num">01.</span> Работы</a>
-                <a href="#services"><span class="nav-num">02.</span> Услуги</a>
-                <a href="#contact"><span class="nav-num">03.</span> Контакты</a>
-            </div>
-            <div class="messenger-icons">
-                <a href="https://t.me/dh_studiotm" target="_blank" title="Telegram" class="telegram-icon">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="https://wa.me/+79222302264" target="_blank" title="WhatsApp" class="whatsapp-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="mailto:dhstudiotm.com" target="_blank" title="Email" class="email-icon">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://github.com/hojayevdidar383-ctrl" target="_blank" title="GitHub" class="github-icon">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-        </nav>
+    <div class="logo">
+        <span class="logo-icon"><</span>DH Studio<span class="logo-icon">/></span>
+    </div>
+    
+    <div class="messenger-icons">
+        <a href="https://t.me/dh_studiotm" target="_blank" title="Telegram" class="telegram-icon">
+            <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://wa.me/+79222302264" target="_blank" title="WhatsApp" class="whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:dhstudiotm.com" target="_blank" title="Email" class="email-icon">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/hojayevdidar383-ctrl" target="_blank" title="GitHub" class="github-icon">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+    
+    <div class="nav-links">
+        <a href="#home"><span class="nav-num">00.</span> Главная</a>
+        <a href="#portfolio"><span class="nav-num">01.</span> Работы</a>
+        <a href="#services"><span class="nav-num">02.</span> Услуги</a>
+        <a href="#contact"><span class="nav-num">03.</span> Контакты</a>
+    </div>
+    
+    <!-- Добавьте бургер-меню для мобильных (опционально) -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
+</nav>
+/* Бургер-меню для мобильных */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1002;
+}
 
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+        margin-left: 10px;
+    }
+    
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 15, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 1001;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links a {
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .nav-links a:hover {
+        background: rgba(0, 150, 255, 0.15);
+    }
+}
         <!-- Главная секция -->
         <section id="home" class="hero">
             <div class="hero-content">
